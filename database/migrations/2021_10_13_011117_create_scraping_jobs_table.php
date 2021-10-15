@@ -16,7 +16,7 @@ class CreateScrapingJobsTable extends Migration
         Schema::create('scraping_jobs', function (Blueprint $table) {
             $table->id();
             $table->string("search_keyword");
-            $table->mediumText("scraping_url");
+            $table->longText("scraping_url");
             $table->boolean("finished")->nullable();
             $table->boolean("successfull")->nullable();
             $table->timestamp("finished_at")->nullable();

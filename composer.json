@@ -10,6 +10,7 @@
         "dmore/chrome-mink-driver": "^2.8",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
+        "imtigger/laravel-job-status": "^1.2",
         "inertiajs/inertia-laravel": "^0.4.3",
         "laravel/framework": "^8.54",
         "laravel/jetstream": "^2.4",

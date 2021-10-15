@@ -1111,6 +1111,12 @@ select {
 .col-span-6 {
 	grid-column: span 6 / span 6;
 }
+.m-auto {
+	margin: auto;
+}
+.m-2 {
+	margin: 0.5rem;
+}
 .mx-auto {
 	margin-left: auto;
 	margin-right: auto;
@@ -1186,6 +1192,15 @@ select {
 }
 .-mt-px {
 	margin-top: -1px;
+}
+.mb-10 {
+	margin-bottom: 2.5rem;
+}
+.mb-3 {
+	margin-bottom: 0.75rem;
+}
+.mt-52 {
+	margin-top: 13rem;
 }
 .block {
 	display: block;
@@ -1274,6 +1289,21 @@ select {
 .w-20 {
 	width: 5rem;
 }
+.w-96 {
+	width: 24rem;
+}
+.w-8\/12 {
+	width: 66.666667%;
+}
+.w-6\/12 {
+	width: 50%;
+}
+.w-5\/12 {
+	width: 41.666667%;
+}
+.w-2\/12 {
+	width: 16.666667%;
+}
 .min-w-0 {
 	min-width: 0px;
 }
@@ -1343,11 +1373,17 @@ select {
 .grid-cols-1 {
 	grid-template-columns: repeat(1, minmax(0, 1fr));
 }
+.grid-cols-4 {
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+}
 .flex-col {
 	flex-direction: column;
 }
 .flex-wrap {
 	flex-wrap: wrap;
+}
+.items-start {
+	align-items: flex-start;
 }
 .items-center {
 	align-items: center;
@@ -1369,6 +1405,12 @@ select {
 }
 .gap-1 {
 	gap: 0.25rem;
+}
+.gap-3 {
+	gap: 0.75rem;
+}
+.gap-5 {
+	gap: 1.25rem;
 }
 .space-x-8 > :not([hidden]) ~ :not([hidden]) {
 	--tw-space-x-reverse: 0;
@@ -1445,6 +1487,9 @@ select {
 .border-b {
 	border-bottom-width: 1px;
 }
+.border-r {
+	border-right-width: 1px;
+}
 .border-gray-300 {
 	--tw-border-opacity: 1;
 	border-color: rgba(209, 213, 219, var(--tw-border-opacity));
@@ -1463,6 +1508,13 @@ select {
 .border-gray-100 {
 	--tw-border-opacity: 1;
 	border-color: rgba(243, 244, 246, var(--tw-border-opacity));
+}
+.border-gray-400 {
+	--tw-border-opacity: 1;
+	border-color: rgba(156, 163, 175, var(--tw-border-opacity));
+}
+.border-opacity-0 {
+	--tw-border-opacity: 0;
 }
 .bg-white {
 	--tw-bg-opacity: 1;
@@ -1512,6 +1564,10 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(229, 231, 235, var(--tw-bg-opacity));
 }
+.bg-gray-400 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(156, 163, 175, var(--tw-bg-opacity));
+}
 .bg-opacity-25 {
 	--tw-bg-opacity: 0.25;
 }
@@ -1533,6 +1589,12 @@ select {
 }
 .p-6 {
 	padding: 1.5rem;
+}
+.p-10 {
+	padding: 2.5rem;
+}
+.p-4 {
+	padding: 1rem;
 }
 .px-4 {
 	padding-left: 1rem;
@@ -1662,6 +1724,10 @@ select {
 	font-size: 1.25rem;
 	line-height: 1.75rem;
 }
+.text-3xl {
+	font-size: 1.875rem;
+	line-height: 2.25rem;
+}
 .font-medium {
 	font-weight: 500;
 }
@@ -1683,8 +1749,14 @@ select {
 .leading-4 {
 	line-height: 1rem;
 }
+.leading-none {
+	line-height: 1;
+}
 .tracking-widest {
 	letter-spacing: 0.1em;
+}
+.tracking-wider {
+	letter-spacing: 0.05em;
 }
 .text-gray-500 {
 	--tw-text-opacity: 1;
@@ -1746,6 +1818,14 @@ select {
 	--tw-text-opacity: 1;
 	color: rgba(16, 185, 129, var(--tw-text-opacity));
 }
+.text-gray-200 {
+	--tw-text-opacity: 1;
+	color: rgba(229, 231, 235, var(--tw-text-opacity));
+}
+.text-gray-300 {
+	--tw-text-opacity: 1;
+	color: rgba(209, 213, 219, var(--tw-text-opacity));
+}
 .underline {
 	text-decoration: underline;
 }
@@ -1786,6 +1866,10 @@ select {
 }
 .shadow-xl {
 	--tw-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.shadow-2xl {
+	--tw-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 .ring-1 {
@@ -1846,6 +1930,13 @@ select {
 .hover\:border-gray-300:hover {
 	--tw-border-opacity: 1;
 	border-color: rgba(209, 213, 219, var(--tw-border-opacity));
+}
+.hover\:border-gray-900:hover {
+	--tw-border-opacity: 1;
+	border-color: rgba(17, 24, 39, var(--tw-border-opacity));
+}
+.hover\:border-opacity-100:hover {
+	--tw-border-opacity: 1;
 }
 .hover\:bg-indigo-600:hover {
 	--tw-bg-opacity: 1;
@@ -2058,10 +2149,6 @@ select {
 		margin-left: 1.5rem;
 	}
 
-	.sm\:ml-0 {
-		margin-left: 0px;
-	}
-
 	.sm\:block {
 		display: block;
 	}
@@ -2076,10 +2163,6 @@ select {
 
 	.sm\:h-10 {
 		height: 2.5rem;
-	}
-
-	.sm\:h-20 {
-		height: 5rem;
 	}
 
 	.sm\:w-10 {
@@ -2204,10 +2287,6 @@ select {
 
 	.sm\:text-left {
 		text-align: left;
-	}
-
-	.sm\:text-right {
-		text-align: right;
 	}
 }
 @media (min-width: 768px) {

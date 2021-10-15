@@ -9,7 +9,10 @@ class ApplyLink extends Model
 {
     use HasFactory;
 
-    public function googleJob(){
+    protected $guarded = [];
+
+    public function googleJob()
+    {
         return $this->belongsTo(GoogleJob::class);
     }
 }

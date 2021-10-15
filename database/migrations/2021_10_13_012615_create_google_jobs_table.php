@@ -17,7 +17,7 @@ class CreateGoogleJobsTable extends Migration
             $table->id();
             $table->string("job_title");
             $table->string("job_type");
-            $table->string("job_description")->nullable();
+            $table->longText("job_description")->nullable();
             $table->string("salary")->nullable();
             $table->string("location")->nullable();
             $table->string("company_name");

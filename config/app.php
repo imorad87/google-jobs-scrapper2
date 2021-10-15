@@ -161,6 +161,9 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        //JobStatusGithub
+        Imtigger\LaravelJobStatus\LaravelJobStatusServiceProvider::class,
+        Imtigger\LaravelJobStatus\LaravelJobStatusBusServiceProvider::class,
 
         /*
          * Package Service Providers...
