@@ -32,7 +32,7 @@
 					</form>
 				</div>
 				<hr>
-				<div class="jobs-container flex flex-col gap-5 mt-10 shadow-2xl p-10">
+				<div class="jobs-container flex flex-col gap-5 mt-10 shadow-2xl p-10" style="width: 110rem; height: 60rem; overflow-y: scroll;">
 					<div class="text-3xl">Scraping Jobs</div>
 					<div class="job-items">
 						<div class="grid grid-cols-4 items-center justify-center p-10">

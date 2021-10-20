@@ -7,6 +7,7 @@ use Behat\Mink\Mink;
 use Behat\Mink\Session;
 use App\Models\GoogleJob;
 use App\Models\ScrapingJob;
+use Carbon\Carbon;
 use Illuminate\Bus\Queueable;
 use DMore\ChromeDriver\ChromeDriver;
 use Illuminate\Queue\SerializesModels;
@@ -119,7 +120,8 @@ class ProcessScrapingJob implements ShouldQueue
 
                     $this->scrapingJob->finished = true;
                     $this->scrapingJob->successfull = true;
-                    $date = new DateTime();
+                    $now = Carbon::now();
+                    $this->scrapingJob->finished_at = $now->toDateTimeString();
                     $this->scrapingJob->save();
                 } catch (\Throwable $th) {
                     echo ($th);

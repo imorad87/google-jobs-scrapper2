@@ -17,7 +17,7 @@ class CreateApplyLinksTable extends Migration
             $table->id();
             $table->string("note");
             $table->mediumText("link");
-            $table->foreignId("google_job_id")->references("id")->on("google_jobs");
+            $table->foreignId("google_job_id")->references("id")->on("google_jobs")->onDelete("cascade");
             $table->timestamps();
         });
     }

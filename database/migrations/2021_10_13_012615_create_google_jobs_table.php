@@ -27,7 +27,7 @@ class CreateGoogleJobsTable extends Migration
             $table->string("contact_name")->nullable();
             $table->string("contact_email")->nullable();
             $table->timestamps();
-            $table->foreignId("scraping_job_id")->references("id")->on("scraping_jobs");
+            $table->foreignId("scraping_job_id")->references("id")->on("scraping_jobs")->onDelete("cascade");
         });
     }
 

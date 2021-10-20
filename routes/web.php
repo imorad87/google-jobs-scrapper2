@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CSVExportController;
 use Behat\Mink\Mink;
 use Inertia\Inertia;
 use Behat\Mink\Session;
@@ -28,6 +29,8 @@ use App\Http\Controllers\ScrapingJobsController;
 
 Route::get("/", [ScrapingJobsController::class, "index"])->name("scrapingjobs.index");
 Route::get("/jobs/{scrapingJob}", [ScrapingJobsController::class, "show"])->name("scrapingjob.detail");
+Route::delete("/job/delete/{scrapingJob}", [ScrapingJobsController::class, "destroy"])->name("scrapingjob.delete");
+Route::get("/csv/{id}", [CSVExportController::class, "exportCsv"])->name("export.csv");
 
 
 

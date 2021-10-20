@@ -21114,15 +21114,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
+/* harmony import */ var _Jetstream_ResponsiveNavLink_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Jetstream/ResponsiveNavLink.vue */ "./resources/js/Jetstream/ResponsiveNavLink.vue");
+/* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
+/* harmony import */ var _Pages_components_GoogleJobsCard_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Pages/components/GoogleJobsCard.vue */ "./resources/js/Pages/components/GoogleJobsCard.vue");
+
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    Link: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__.Link,
-    Head: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__.Head
+    Link: _Jetstream_ResponsiveNavLink_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    Head: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.Head,
+    GoogleJobCard: _Pages_components_GoogleJobsCard_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   props: {
     scrapingJob: Object
+  },
+  methods: {
+    exportCsv: function exportCsv() {
+      this.$inertia.get(this.route("export.csv", this.scrapingJob.id));
+    },
+    formatDate: function formatDate(raw) {
+      var d = new Date(raw);
+      return d.toLocaleString();
+    },
+    deleteJob: function deleteJob() {
+      this.$inertia["delete"](this.route("scrapingjob.delete", this.scrapingJob.id));
+    }
   }
 });
 
@@ -21234,6 +21251,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     scrapingJob: Object
+  },
+  data: function data() {
+    return {
+      finished: false
+    };
+  },
+  methods: {
+    formatDate: function formatDate(raw) {
+      if (!raw) {
+        return;
+      }
+
+      var d = new Date(raw);
+      return d.toLocaleString();
+    },
+    goToDetail: function goToDetail() {
+      this.$inertia.get(this.route("scrapingjob.detail", this.scrapingJob.id));
+    }
   }
 });
 
@@ -25597,66 +25632,188 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "w-5/12 m-auto flex flex-col mt-52"
+  "class": "w-8/12 m-auto flex flex-col mt-52"
 };
 var _hoisted_2 = {
   "class": "fixed top-0 right-0 px-6 py-4 sm:block flex gap-5"
 };
+var _hoisted_3 = ["href"];
+var _hoisted_4 = {
+  "class": "text-4xl text-center"
+};
 
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Dashboard ");
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Scraping Job Detail For ");
 
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Log in ");
+var _hoisted_6 = {
+  "class": "font-semibold"
+};
+var _hoisted_7 = {
+  "class": "job-information flex gap-3 justify-center items-center mt-10 justify-between"
+};
+var _hoisted_8 = {
+  "class": "rounded-xl border-2 border-indigo-800 p-3 flex flex-col gap-2 items-center jutsify-center w-2/12"
+};
 
-var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Register ");
-
-var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-  "class": "text-2xl"
-}, "Scraping Job Detail", -1
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "text-2xl font-extrabold"
+}, "Title", -1
 /* HOISTED */
 );
 
+var _hoisted_10 = {
+  "class": "text-xl"
+};
+var _hoisted_11 = {
+  "class": "rounded-xl border-2 border-indigo-800 p-3 flex flex-col gap-2 items-center jutsify-center w-2/12"
+};
+
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "text-2xl font-extrabold"
+}, "Created", -1
+/* HOISTED */
+);
+
+var _hoisted_13 = {
+  "class": "text-md"
+};
+var _hoisted_14 = {
+  "class": "rounded-xl border-2 border-indigo-800 p-3 flex flex-col gap-2 items-center jutsify-center w-2/12"
+};
+
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "text-2xl font-extrabold"
+}, "Updated", -1
+/* HOISTED */
+);
+
+var _hoisted_16 = {
+  "class": "text-md"
+};
+var _hoisted_17 = {
+  "class": "rounded-xl border-2 border-indigo-800 p-3 flex flex-col gap-2 items-center jutsify-center w-2/12"
+};
+
+var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "text-2xl font-extrabold"
+}, "Status", -1
+/* HOISTED */
+);
+
+var _hoisted_19 = {
+  "class": "text-xl"
+};
+var _hoisted_20 = {
+  "class": "rounded-xl border-2 border-indigo-800 p-3 flex flex-col gap-2 items-center jutsify-center w-2/12"
+};
+
+var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "text-2xl font-extrabold"
+}, "Completed", -1
+/* HOISTED */
+);
+
+var _hoisted_22 = {
+  "class": "text-xl"
+};
+var _hoisted_23 = {
+  "class": "rounded-xl border-2 border-indigo-800 p-3 flex flex-col gap-2 items-center jutsify-center w-2/12"
+};
+
+var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "text-2xl font-extrabold"
+}, "Scraped Jobs", -1
+/* HOISTED */
+);
+
+var _hoisted_25 = {
+  "class": "text-xl"
+};
+var _hoisted_26 = {
+  "class": "rounded-xl border-2 border-indigo-800 p-3 flex flex-col gap-2 items-center jutsify-center w-2/12"
+};
+
+var _hoisted_27 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "text-2xl font-extrabold"
+}, "Google Link", -1
+/* HOISTED */
+);
+
+var _hoisted_28 = {
+  "class": "text-xl underline"
+};
+var _hoisted_29 = ["href"];
+var _hoisted_30 = {
+  "class": "controls flex justify-between"
+};
+var _hoisted_31 = ["href"];
+var _hoisted_32 = {
+  "class": "flex gap-6"
+};
+var _hoisted_33 = ["href"];
+
+var _hoisted_34 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "text-3xl mb-5 font-extrabold underline ml-2"
+}, "Scraped Google Jobs", -1
+/* HOISTED */
+);
+
+var _hoisted_35 = {
+  key: 0,
+  "class": "grid grid-cols-4"
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  var _component_Link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Link");
+  var _component_GoogleJobCard = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("GoogleJobCard");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
-    href: _ctx.route('dashboard'),
-    "class": "text-sm text-gray-700 underline"
-  }, {
-    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_3];
-    }),
-    _: 1
-    /* STABLE */
-
-  }, 8
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    href: _ctx.route('scrapingjobs.index'),
+    "class": "text-lg text-gray-700 underline"
+  }, " Home ", 8
   /* PROPS */
-  , ["href"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
-    href: _ctx.route('login'),
-    "class": "text-sm text-gray-700 underline"
-  }, {
-    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_4];
-    }),
-    _: 1
-    /* STABLE */
-
-  }, 8
-  /* PROPS */
-  , ["href"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
-    href: _ctx.route('register'),
-    "class": "ml-4 text-sm text-gray-700 underline"
-  }, {
-    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_5];
-    }),
-    _: 1
-    /* STABLE */
-
-  }, 8
-  /* PROPS */
-  , ["href"])]), _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.scrapingJob.google_jobs[0].company_logo), 1
+  , _hoisted_3)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.scrapingJob.search_keyword), 1
   /* TEXT */
-  )]);
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.scrapingJob.search_keyword), 1
+  /* TEXT */
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [_hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.formatDate($props.scrapingJob.created_at)), 1
+  /* TEXT */
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [_hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.formatDate($props.scrapingJob.updated_at)), 1
+  /* TEXT */
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [_hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.scrapingJob.successfull == 1 ? "Completed" : "In Progress"), 1
+  /* TEXT */
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [_hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.scrapingJob.finished == 1 ? "Yes" : "No"), 1
+  /* TEXT */
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [_hoisted_24, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_25, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.scrapingJob.google_jobs.length), 1
+  /* TEXT */
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_26, [_hoisted_27, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_28, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    href: $props.scrapingJob.scraping_url,
+    target: "_blank"
+  }, "Go to Google", 8
+  /* PROPS */
+  , _hoisted_29)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_30, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <input type=\"button\" value=\"Export to CSV\" @click=\"exportCsv\"> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    "class": "font-bold mt-10 mb-10 hover:bg-indigo-800 hover:text-white bg-white text-indigo-800 p-2 rounded-xl underline",
+    href: _ctx.route('scrapingjobs.index')
+  }, "Back", 8
+  /* PROPS */
+  , _hoisted_31), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_32, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    "class": "font-extrabold mt-10 mb-10 border-3 border-red-900 border-opacity-0 hover:border-opacity-100 bg-red-700 text-white p-2 rounded-xl underline",
+    href: "#",
+    onClick: _cache[0] || (_cache[0] = function () {
+      return $options.deleteJob && $options.deleteJob.apply($options, arguments);
+    })
+  }, "DELETE"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    "class": "font-bold mt-10 mb-10 hover:bg-indigo-800 hover:text-white bg-white text-indigo-800 p-2 rounded-xl underline",
+    href: _ctx.route('export.csv', $props.scrapingJob.id)
+  }, "Export to CSV", 8
+  /* PROPS */
+  , _hoisted_33)])]), _hoisted_34, $props.scrapingJob.google_jobs ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_35, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.scrapingJob.google_jobs, function (googleJob) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_GoogleJobCard, {
+      googleJob: googleJob,
+      key: googleJob.id
+    }, null, 8
+    /* PROPS */
+    , ["googleJob"]);
+  }), 128
+  /* KEYED_FRAGMENT */
+  ))])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);
 }
 
 /***/ }),
@@ -25769,7 +25926,12 @@ var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 );
 
 var _hoisted_14 = {
-  "class": "jobs-container flex flex-col gap-5 mt-10 shadow-2xl p-10"
+  "class": "jobs-container flex flex-col gap-5 mt-10 shadow-2xl p-10",
+  style: {
+    "width": "110rem",
+    "height": "60rem",
+    "overflow-y": "scroll"
+  }
 };
 
 var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
@@ -25882,8 +26044,51 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "render": () => (/* binding */ render)
 /* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+var _hoisted_1 = {
+  "class": "flex flex gap-2 bg-gray-200 rounded-lg p-4 m-2 w-auto items-center"
+};
+var _hoisted_2 = {
+  key: 0,
+  "class": "company-logo"
+};
+var _hoisted_3 = ["src"];
+var _hoisted_4 = {
+  "class": "flex flex-col items-start mt-4 gap-3"
+};
+var _hoisted_5 = {
+  "class": "text-xl font-semibold"
+};
+var _hoisted_6 = ["href"];
+var _hoisted_7 = {
+  "class": "text-sm"
+};
+var _hoisted_8 = {
+  "class": "text-sm"
+};
+var _hoisted_9 = ["href"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return " google job card ";
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [$props.googleJob.company_logo != null ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+    "class": "w-16 h-16 rounded-full",
+    src: $props.googleJob.company_logo == 'NA' ? 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/450px-No_image_available.svg.png' : $props.googleJob.company_logo,
+    alt: "logo"
+  }, null, 8
+  /* PROPS */
+  , _hoisted_3)])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    href: _ctx.route('scrapingjob.detail', $props.googleJob.id)
+  }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.googleJob.job_title), 9
+  /* TEXT, PROPS */
+  , _hoisted_6)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.googleJob.location), 1
+  /* TEXT */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.googleJob.company_name), 1
+  /* TEXT */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    "class": "p-2 leading-none rounded font-medium mt-3 bg-gray-400 text-xs uppercase",
+    href: _ctx.route('scrapingjob.detail', $props.googleJob.id)
+  }, "Job Detail", 8
+  /* PROPS */
+  , _hoisted_9)])]);
 }
 
 /***/ }),
@@ -25902,56 +26107,59 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "flex flex-col bg-gray-200 rounded-lg p-4 m-2 w-96"
-};
-var _hoisted_2 = {
   "class": "flex flex-col items-start mt-4 gap-3"
 };
-var _hoisted_3 = {
-  "class": "text-xl font-semibold"
+var _hoisted_2 = {
+  "class": "text-2xl font-semibold underline"
 };
-var _hoisted_4 = ["href"];
-var _hoisted_5 = {
-  "class": "text-sm"
+var _hoisted_3 = ["href"];
+var _hoisted_4 = {
+  "class": ""
 };
+
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "font-bold"
+}, "Created:", -1
+/* HOISTED */
+);
+
 var _hoisted_6 = {
-  "class": "text-sm"
+  "class": ""
 };
-var _hoisted_7 = {
-  "class": "text-sm"
-};
+
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "font-bold"
+}, "Status:", -1
+/* HOISTED */
+);
+
 var _hoisted_8 = {
-  "class": "text-sm"
+  "class": ""
 };
-var _hoisted_9 = {
-  "class": "text-sm"
-};
-var _hoisted_10 = ["href"];
-var _hoisted_11 = ["href"];
+
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "font-bold"
+}, "Finished:", -1
+/* HOISTED */
+);
+
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+    "class": "flex flex-col bg-gray-200 rounded-lg p-4 m-2 w-96 border-2 border-opacity-0 hover:border-opacity-100 hover:border-indigo-800 hover:cursor-pointer",
+    onClick: _cache[0] || (_cache[0] = function () {
+      return $options.goToDetail && $options.goToDetail.apply($options, arguments);
+    })
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
     href: _ctx.route('scrapingjob.detail', $props.scrapingJob.id)
   }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.scrapingJob.search_keyword), 9
   /* TEXT, PROPS */
-  , _hoisted_4)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_5, "Created At: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.scrapingJob.created_at), 1
+  , _hoisted_3)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.formatDate($props.scrapingJob.created_at)), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_6, "Finished: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.scrapingJob.finished), 1
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.scrapingJob.successfull == 1 ? "Completed" : "In Progress"), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_7, "Status: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.scrapingJob.successfull), 1
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_8, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.scrapingJob.finished_at ? $options.formatDate($props.scrapingJob.finished_at) : 'No'), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_8, "Finished At: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.scrapingJob.updated_at), 1
-  /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-    href: $props.scrapingJob.scraping_url,
-    target: "_blank"
-  }, "Google Jobs Link", 8
-  /* PROPS */
-  , _hoisted_10)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-    "class": "p-2 leading-none rounded font-medium mt-3 bg-gray-400 text-xs uppercase",
-    href: _ctx.route('scrapingjob.detail', $props.scrapingJob.id)
-  }, "Job Detail", 8
-  /* PROPS */
-  , _hoisted_11)])]);
+  )])])]);
 }
 
 /***/ }),

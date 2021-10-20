@@ -91,6 +91,7 @@ class ScrapingJobsController extends Controller
      */
     public function destroy(ScrapingJob $scrapingJob)
     {
-        //
+        $scrapingJob->deleteOrFail();
+        return redirect()->route("scrapingjobs.index");
     }
 }
