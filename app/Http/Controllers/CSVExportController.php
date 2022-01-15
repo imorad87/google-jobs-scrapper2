@@ -95,7 +95,7 @@ class CSVExportController extends Controller
                 "Expires"             => "0"
             );
 
-            $columns = array('Id', 'JobTitle', 'JobType', 'JobDescription', 'CompanyName', 'Salary', 'Location', 'PostedSince', 'ContactName', 'ContactEmail', 'CreatedAt', 'UpdatedAt', 'ScrapingJobId', 'ApplyLinks');
+            $columns = array('Id', 'JobTitle', 'JobType', 'JobDescription', 'CompanyName', 'Salary', 'Location', 'PostedSince', 'ContactName', 'ContactEmail', 'CreatedAt', 'UpdatedAt', 'ScrapingJobId', 'ApplyLinks', 'Logo');
 
             $callback = function () use ($googleJobs, $columns, $id) {
                 $file = fopen('php://output', 'w');
@@ -118,6 +118,7 @@ class CSVExportController extends Controller
                     $row['ContactEmail']        =  $jobWithLinks->contact_email;
                     $row['CreatedAt']           =  $jobWithLinks->created_at;
                     $row['UpdatedAt']           =  $jobWithLinks->updated_at;
+                    $row['logo']                =  $jobWithLinks->company_logo;
                     $row['ScrapingJobId']       =  $id;
 
                     $applyLinks = $jobWithLinks->applyLinks;
@@ -151,7 +152,8 @@ class CSVExportController extends Controller
                         $row['CreatedAt'],
                         $row['UpdatedAt'],
                         $row['ScrapingJobId'],
-                        $row["ApplyLinks"]
+                        $row["ApplyLinks"],
+                        $row["logo"],
                     ), "~");
                 }
 
